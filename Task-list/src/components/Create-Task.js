@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {API_PORT} from "../App"
 
 export default class CreateTask extends Component {
   constructor(props) {
@@ -40,7 +39,7 @@ export default class CreateTask extends Component {
     };
 
     axios
-      .post(`${API_PORT}/tasks/add`, newTask)
+      .post('/tasks/add', newTask)
       .then((res) => console.log(res.data));
 
     this.setState({

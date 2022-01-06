@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Task-list.css";
 import * as moment  from 'moment'
-import {API_PORT} from "../App"
+
 
 
 const Tasks = (props) => (
@@ -30,7 +30,7 @@ const Tasks = (props) => (
         className="btn btn-light"
         onClick={function () {
           axios
-            .post(`${API_PORT}/tasks/delete/${props.task._id}`)
+            .post(`/tasks/delete/${props.task._id}`)
             .then((res) => {
               console.log("Successfuly Deleted");
               window.location.reload();

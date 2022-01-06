@@ -18,7 +18,7 @@ export default class EditTask extends Component {
     const params = this.props.params;
     const id = params.id;
     axios
-      .get(`${API_PORT}/tasks/` + id)
+      .get('/tasks/' + id)
       .then((res) => {
         this.setState({
           taskName: res.data.taskName,
