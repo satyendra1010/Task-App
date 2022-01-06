@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Task-list.css";
 import * as moment  from 'moment'
+import {API_PORT} from "../App"
+
 
 const Tasks = (props) => (
   <tr>
@@ -28,7 +30,7 @@ const Tasks = (props) => (
         className="btn btn-light"
         onClick={function () {
           axios
-            .post(`http://localhost:4000/tasks/delete/${props.task._id}`)
+            .post(`${API_PORT}/tasks/delete/${props.task._id}`)
             .then((res) => {
               console.log("Successfuly Deleted");
               window.location.reload();
@@ -52,7 +54,7 @@ export default class TaskList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/tasks")
+      .get(`${API_PORT}/tasks`)
       .then((res) => {
         this.setState({
           tasks: res.data,
@@ -60,17 +62,6 @@ export default class TaskList extends Component {
       })
       .catch((err) => console.log(err));
   }
-
-  // componentDidUpdate() {
-  //   axios
-  //     .get("http://localhost:4000/tasks")
-  //     .then((res) => {
-  //       this.setState({
-  //         tasks: res.data,
-  //       });
-  //     })
-  //     .catch((err) => console.log(err));
-  // }
 
   taskList = () =>
     this.state.tasks.map((task, index) => <Tasks task={task} key={index} />);

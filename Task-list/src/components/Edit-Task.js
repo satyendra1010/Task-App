@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {API_PORT} from "../App"
+
 
 export default class EditTask extends Component {
   constructor(props) {
@@ -16,7 +18,7 @@ export default class EditTask extends Component {
     const params = this.props.params;
     const id = params.id;
     axios
-      .get("http://localhost:4000/tasks/" + id)
+      .get(`${API_PORT}/tasks/` + id)
       .then((res) => {
         this.setState({
           taskName: res.data.taskName,
@@ -61,7 +63,7 @@ export default class EditTask extends Component {
       taskProgress: this.state.taskProgress,
     };
     axios
-      .post("http://localhost:4000/tasks/update/" + this.props.params.id, obj)
+      .post(`${API_PORT}/tasks/update/` + this.props.params.id, obj)
       .then((res) => console.log(res.data));
 
     console.log(this.props);

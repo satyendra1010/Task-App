@@ -5,6 +5,8 @@ import { EditHOC } from "./components/EditHOC";
 import TaskList from "./components/Task-list";
 import { CreateHOC } from "./components/CreateHOC";
 
+export const API_PORT = process.env.PORT;
+
 class App extends Component {
   render() {
     return (
