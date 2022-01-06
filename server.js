@@ -17,7 +17,7 @@ if(PORT == null || PORT ==""){
 }
 
 // ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "Task-list", "build")))
+app.use(express.static(path.join(__dirname)))
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "Task-list", "build", "index.html"));
