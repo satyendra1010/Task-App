@@ -19,6 +19,8 @@ if(PORT == null || PORT ==""){
 }
 
 // ... other app.use middleware 
+app.use('/tasks', taskRoutes);
+
 app.use(express.static(path.join(__dirname, "Task-list", "build")))
 
 app.get("/*", (req, res) => {
@@ -95,7 +97,7 @@ taskRoutes.route('/delete/:id').post((req,res) => {
 })
 }); 
 
-app.use('/tasks', taskRoutes);
+
 
 app.listen( PORT, () => {
     console.log("Server is running on port " + PORT);
