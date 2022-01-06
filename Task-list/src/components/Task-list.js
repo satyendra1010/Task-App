@@ -57,7 +57,7 @@ export default class TaskList extends Component {
       .get(`${API_PORT}/tasks`)
       .then((res) => {
         this.setState({
-          tasks: res.data,
+          tasks: Array.from(res.data) ,
         });
       })
       .catch((err) => console.log(err));
