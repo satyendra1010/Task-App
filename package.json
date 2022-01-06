@@ -1,0 +1,28 @@
+{
+  "name": "task-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "inspect": "nodemon Server.js --inspect",
+    "build": "cd Task-list && npm run build",
+    "install-Task-list": "cd Task-list && npm install",
+    "heroku-postbuild": "npm run install-Task-list && npm run build",
+    "server": "nodemon server.js",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix Task-list\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "14.17.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.5"
+  }
+}
