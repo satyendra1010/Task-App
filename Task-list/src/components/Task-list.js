@@ -65,7 +65,8 @@ export default class TaskList extends Component {
 
   taskList = () =>
   {
-    if(this.state.tasks){
+    console.log(this.state)
+    if(this.state.tasks.length >0){
       this.state.tasks.map((task, index) => <Tasks task={task} key={index} />);
     }
   }
