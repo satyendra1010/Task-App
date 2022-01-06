@@ -54,10 +54,10 @@ export default class TaskList extends Component {
 
   componentDidMount() {
     axios
-      .get(`${API_PORT}/tasks`)
+      .get('/tasks')
       .then((res) => {
         this.setState({
-          tasks: Array.from(res.data) ,
+          tasks: res.data ,
         });
       })
       .catch((err) => console.log(err));
