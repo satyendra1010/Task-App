@@ -9,6 +9,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+      {console.log("Thanks for opening the console. Hope you liked the Project.")}
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="#">
