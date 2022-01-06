@@ -22,7 +22,7 @@ if(PORT == null || PORT ==""){
 app.use(express.static(path.join(__dirname, "Task-list", "build")))
 
 app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "Task-list", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "../Task-list", "build", "index.html"));
 });
 console.log('Serving React App...');
 

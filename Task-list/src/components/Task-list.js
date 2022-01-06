@@ -54,7 +54,7 @@ export default class TaskList extends Component {
 
   componentDidMount() {
     axios
-      .get('https://' + document.location.hostname + '/tasks')
+      .get('/tasks')
       .then((res) => {
         this.setState({
           tasks: res.data ,
