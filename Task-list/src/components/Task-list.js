@@ -54,7 +54,7 @@ export default class TaskList extends Component {
 
   componentDidMount() {
     axios
-      .get('/tasks')
+      .get('/tasks/')
       .then((res) => {
         this.setState({
           tasks: res.data ,
