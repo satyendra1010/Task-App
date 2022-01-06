@@ -17,11 +17,11 @@ if(PORT == null || PORT ==""){
 }
 
 // ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "Task-list", "build")))
-
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "Task-list", "build", "index.html"));
+app.use(express.static('client/build')); // serve the static react app
+app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
+console.log('Serving React App...');
 
 mongoose.connect('mongodb+srv://admin-satyendra:Satyendra@cluster0.umgkv.mongodb.net/TaskDB', { useNewUrlParser: true });
 const connection = mongoose.connection;
