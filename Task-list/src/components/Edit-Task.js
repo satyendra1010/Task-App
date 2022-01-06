@@ -96,7 +96,7 @@ export default class EditTask extends Component {
           <div className="form-group">
             <label>Date: </label>
             <input
-              type="text"
+              type="date"
               className="form-control"
               value={this.state.taskDate}
               onChange={this.onChangeTaskDate}
