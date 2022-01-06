@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "homepage": ".",
+  "proxy": "http://localhost:4000",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "inspect": "node Server.js --inspect",
