@@ -3,13 +3,17 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const taskRoutes = express.Router();
-const PORT = 4000;
+let PORT = process.env.PORT;
 let Task = require('./model/taskSchema');
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+
+if(PORT == null || PORT ==""){
+    PORT = 4000;
+}
 
 mongoose.connect('mongodb+srv://admin-satyendra:Satyendra@cluster0.umgkv.mongodb.net/TaskDB', { useNewUrlParser: true });
 const connection = mongoose.connection;
