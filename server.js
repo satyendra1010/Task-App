@@ -21,7 +21,7 @@ if(PORT == null || PORT ==""){
 // ... other app.use middleware 
 app.use(express.static(path.join(__dirname, "Task-list", "build")))
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "Task-list", "build", "index.html"));
 });
 console.log('Serving React App...');
@@ -36,6 +36,7 @@ connection.once('open', () => {
 
 taskRoutes.route('/').get( (req,res) => {
     Task.find((err, tasks) => {
+        console.log(req)
         if(err)
             console.log(err);
         else {
