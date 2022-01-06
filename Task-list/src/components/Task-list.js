@@ -54,7 +54,7 @@ export default class TaskList extends Component {
 
   componentDidMount() {
     axios
-      .get('/tasks/')
+      .get('/tasks')
       .then((res) => {
         this.setState({
           tasks: res.data ,
@@ -65,8 +65,8 @@ export default class TaskList extends Component {
 
   taskList = () =>
   {
-    console.log(this.state)
-    if(this.state.tasks.length >0){
+    if(this.state.tasks.length > 0){
+      console.log('hi')
       this.state.tasks.map((task, index) => <Tasks task={task} key={index} />);
     }
   }
