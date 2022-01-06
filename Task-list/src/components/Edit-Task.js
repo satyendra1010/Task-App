@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import * as moment  from 'moment'
 
 
 
@@ -98,7 +99,7 @@ export default class EditTask extends Component {
             <input
               type="date"
               className="form-control"
-              value={this.state.taskDate}
+              value={moment(this.state.taskDate).format("YYYY-MM-DD")}
               onChange={this.onChangeTaskDate}
             />
           </div>
