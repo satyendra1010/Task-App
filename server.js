@@ -8,8 +8,10 @@ let Task = require('./model/taskSchema');
 const path = require("path")
 
 const app = express();
-
-app.use(cors());
+let corsOptions = {
+    origin: ["URL ALLOWED"  ]
+  };
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 if(PORT == null || PORT ==""){
