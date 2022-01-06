@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const taskRoutes = express.Router();
 let PORT = process.env.PORT;
 let Task = require('./model/taskSchema');
+const path = require("path")
 
 const app = express();
 
@@ -14,6 +15,13 @@ app.use(bodyParser.json());
 if(PORT == null || PORT ==""){
     PORT = 4000;
 }
+
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "Task-list", "build")))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "Task-list", "build", "index.html"));
+});
 
 mongoose.connect('mongodb+srv://admin-satyendra:Satyendra@cluster0.umgkv.mongodb.net/TaskDB', { useNewUrlParser: true });
 const connection = mongoose.connection;
