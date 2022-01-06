@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "inspect": "nodemon Server.js --inspect",
+    "inspect": "node Server.js --inspect",
     "build": "cd Task-list && npm run build",
     "install-Task-list": "cd Task-list && npm install",
     "heroku-postbuild": "npm run install-Task-list && npm run build",
-    "server": "nodemon server.js",
+    "server": "node server.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix Task-list\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\""
   },
