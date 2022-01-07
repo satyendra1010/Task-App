@@ -65,8 +65,11 @@ export default class EditTask extends Component {
     };
     axios
       .post('/tasks/update/' + this.props.params.id, obj)
-      .then((res) => console.log(res.data));
-    this.props.navigate("/");
+      .then((res) => {
+        console.log(res.data)
+        this.props.navigate("/");
+      });
+    
   };
 
   render() {
